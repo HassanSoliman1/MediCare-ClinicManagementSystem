@@ -1,0 +1,12 @@
+@model MediCare.Controllers.ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger"><i class="bi bi-exclamation-triangle-fill"></i> An error occurred</h1>
+<p>Something went wrong while processing your request.</p>
+@if (Model.ShowRequestId)
+{
+    <p><strong>Request ID:</strong> <code>@Model.RequestId</code></p>
+}
+<a class="btn btn-primary" asp-controller="Home" asp-action="Index">Back to Home</a>

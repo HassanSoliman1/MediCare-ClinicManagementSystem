@@ -1,0 +1,33 @@
+html {
+  font-size: 15px;
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-color: #f7f9fb;
+}
+
+.doctor-card img,
+.doctor-photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.stat-card {
+  border-radius: 0.75rem;
+  color: #fff;
+  padding: 1.25rem;
+}
+
+.stat-card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.badge-status-Pending { background-color: #ffc107; color: #212529; }
+.badge-status-Confirmed { background-color: #0d6efd; }
+.badge-status-Completed { background-color: #198754; }
+.badge-status-Cancelled { background-color: #dc3545; }

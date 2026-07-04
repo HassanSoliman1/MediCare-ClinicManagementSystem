@@ -1,0 +1,28 @@
+@model UpdateAppointmentStatusViewModel
+@{
+    ViewData["Title"] = "Update Appointment Status";
+}
+
+<h2 class="mb-4"><i class="bi bi-pencil-square"></i> Update Appointment Status</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body p-4">
+        <form asp-action="UpdateStatus" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Status" class="form-label"></label>
+                <select asp-for="Status" class="form-select" asp-items="Html.GetEnumSelectList<AppointmentStatus>()"></select>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Notes" class="form-label">Consultation Notes</label>
+                <textarea asp-for="Notes" class="form-control" rows="4"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a class="btn btn-secondary" asp-action="Appointments">Cancel</a>
+        </form>
+    </div>
+</div>

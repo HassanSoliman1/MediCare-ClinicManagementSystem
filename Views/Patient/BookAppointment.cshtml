@@ -1,0 +1,40 @@
+@model BookAppointmentViewModel
+@{
+    ViewData["Title"] = "Book Appointment";
+}
+
+<h2 class="mb-4"><i class="bi bi-calendar-plus"></i> Book Appointment</h2>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="card-title">@Model.DoctorName <span class="text-muted">(@Model.SpecialtyName)</span></h5>
+                <hr />
+                <form asp-action="BookAppointment" method="post">
+                    <input type="hidden" asp-for="DoctorId" />
+                    <input type="hidden" asp-for="DoctorName" />
+                    <input type="hidden" asp-for="SpecialtyName" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="AppointmentDate" class="form-label"></label>
+                        <input asp-for="AppointmentDate" class="form-control" type="datetime-local" />
+                        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Notes" class="form-label">Reason for visit (optional)</label>
+                        <textarea asp-for="Notes" class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

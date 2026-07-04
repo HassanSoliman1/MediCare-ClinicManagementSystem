@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div class="p-5 mb-4 bg-primary text-white rounded-3 shadow-sm">
+    <div class="container-fluid py-4">
+        <h1 class="display-5 fw-bold"><i class="bi bi-heart-pulse-fill"></i> MediCare Clinic Management System</h1>
+        <p class="col-md-8 fs-5">
+            Book appointments with trusted doctors, manage your medical visits, and keep your clinic
+            running smoothly — all in one place.
+        </p>
+        @if (!User.Identity!.IsAuthenticated)
+        {
+            <a class="btn btn-light btn-lg me-2" asp-controller="Account" asp-action="Register">Get Started</a>
+            <a class="btn btn-outline-light btn-lg" asp-controller="Account" asp-action="Login">Login</a>
+        }
+        else if (User.IsInRole("Patient"))
+        {
+            <a class="btn btn-light btn-lg" asp-controller="Patient" asp-action="SearchDoctors">Find a Doctor</a>
+        }
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-search fs-1 text-primary"></i>
+                <h5 class="card-title mt-3">Search Doctors</h5>
+                <p class="card-text">Find specialists by name or field of expertise in seconds.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-calendar-check fs-1 text-primary"></i>
+                <h5 class="card-title mt-3">Book Appointments</h5>
+                <p class="card-text">Schedule visits and track their status from request to completion.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-clock-history fs-1 text-primary"></i>
+                <h5 class="card-title mt-3">Appointment History</h5>
+                <p class="card-text">Review past visits and cancel upcoming ones anytime.</p>
+            </div>
+        </div>
+    </div>
+</div>

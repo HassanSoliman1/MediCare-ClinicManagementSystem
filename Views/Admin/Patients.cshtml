@@ -1,0 +1,36 @@
+@model List<PatientListItemViewModel>
+@{
+    ViewData["Title"] = "Patients";
+}
+
+<h2 class="mb-4"><i class="bi bi-people"></i> Patients</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table mb-0 align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Total Appointments</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>@p.FullName</td>
+                        <td>@p.Email</td>
+                        <td>@(p.PhoneNumber ?? "-")</td>
+                        <td><span class="badge bg-primary">@p.TotalAppointments</span></td>
+                    </tr>
+                }
+                @if (!Model.Any())
+                {
+                    <tr><td colspan="4" class="text-center text-muted py-3">No patients registered yet.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+@model DoctorFormViewModel
+@{
+    ViewData["Title"] = "Edit Doctor";
+}
+
+<h2 class="mb-4"><i class="bi bi-pencil-square"></i> Edit Doctor</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body p-4">
+        <form asp-action="EditDoctor" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ExistingImagePath" />
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            @if (!string.IsNullOrEmpty(Model.ExistingImagePath))
+            {
+                <img src="~/images/doctors/@Model.ExistingImagePath" class="mb-3 rounded" style="width:120px;height:120px;object-fit:cover;" />
+            }
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="FullName" class="form-label"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Phone" class="form-label"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ExperienceYears" class="form-label"></label>
+                    <input asp-for="ExperienceYears" class="form-control" type="number" />
+                    <span asp-validation-for="ExperienceYears" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="SpecialtyId" class="form-label"></label>
+                    <select asp-for="SpecialtyId" asp-items="Model.Specialties" class="form-select"></select>
+                    <span asp-validation-for="SpecialtyId" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ImageFile" class="form-label">Replace Photo (optional)</label>
+                    <input asp-for="ImageFile" class="form-control" type="file" accept="image/*" />
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary"><i class="bi bi-check-lg"></i> Save Changes</button>
+            <a class="btn btn-secondary" asp-action="Doctors">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

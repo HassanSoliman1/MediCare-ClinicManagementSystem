@@ -4,7 +4,7 @@ A full-stack clinic management system built with **ASP.NET Core MVC (.NET 8)** f
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - ASP.NET Core MVC (.NET 8)
 - C#
@@ -12,7 +12,7 @@ A full-stack clinic management system built with **ASP.NET Core MVC (.NET 8)** f
 - SQL Server
 - ASP.NET Core Identity
 - Bootstrap 5
-
+---
 On the first run, **DbSeeder** automatically:
 
 - Creates the required Identity roles
@@ -64,7 +64,7 @@ On the first run, **DbSeeder** automatically:
 - Server-side and Client-side validation using Data Annotations
 
 
-## 📌 Highlights
+## Highlights
 
 - ASP.NET Core MVC (.NET 8)
 - Entity Framework Core (Code First)
